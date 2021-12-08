@@ -14,8 +14,11 @@ public class Bank implements BankInterface {
 	}
 
 	private Account getAccount(Long accountNumber) {
-		// complete the function
-        return null;
+		if(accounts.containsKey(accountNumber))
+		{
+			return accounts.get(accountNumber);
+		}
+		return null;
 	}
 
 	public Long openCommercialAccount(Company company, int pin, double startingDeposit) {
@@ -43,7 +46,11 @@ public class Bank implements BankInterface {
 	}
 
 	public boolean debit(Long accountNumber, double amount) {
-		// complete the function
-        return true;
+		if(!accounts.containsKey(accountNumber))
+		{
+			return false;	
+		}
+		return true;
+        
 	}
 }
